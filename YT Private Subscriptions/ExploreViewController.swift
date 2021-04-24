@@ -12,8 +12,20 @@ class ExploreViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        guard let superView = parent?.navigationController?.view else { return }
         
-        searchController.searchBar.tintColor = .white
-        parent?.navigationItem.searchController = searchController
+        UIView.transition(with: superView, duration: 0.3, options: .transitionCrossDissolve) {
+            self.parent?.navigationItem.searchController = self.searchController
+            self.searchController.searchBar.tintColor = .white
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        guard let superView = parent?.navigationController?.view else { return }
+        
+        UIView.transition(with: superView, duration: 0.3, options: .transitionCrossDissolve) {
+            self.parent?.navigationItem.searchController = nil
+        }
     }
 }

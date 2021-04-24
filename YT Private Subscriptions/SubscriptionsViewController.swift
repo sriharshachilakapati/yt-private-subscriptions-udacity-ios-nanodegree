@@ -8,8 +8,5 @@
 import UIKit
 
 class SubscriptionsViewController: UIViewController {
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        parent?.navigationItem.searchController = nil
-    }
+    
 }
