@@ -15,6 +15,8 @@
 		20C06BC626342A3200EC7BCE /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C06BC526342A3200EC7BCE /* ExploreViewController.swift */; };
 		20C06BC926342EF100EC7BCE /* SubscriptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C06BC826342EF100EC7BCE /* SubscriptionsViewController.swift */; };
 		20C06BCC263433FE00EC7BCE /* HomeTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C06BCB263433FE00EC7BCE /* HomeTabViewController.swift */; };
+		20C06BD72635B40E00EC7BCE /* URLRequestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C06BD52635B40E00EC7BCE /* URLRequestHelpers.swift */; };
+		20C06BD82635B40E00EC7BCE /* ApiDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C06BD62635B40E00EC7BCE /* ApiDefinition.swift */; };
 		F3059687AF4B326FC77D00F3 /* Pods_YT_Private_Subscriptions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 048E7AE56905C6E0798DCE9D /* Pods_YT_Private_Subscriptions.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +32,8 @@
 		20C06BC526342A3200EC7BCE /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 		20C06BC826342EF100EC7BCE /* SubscriptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionsViewController.swift; sourceTree = "<group>"; };
 		20C06BCB263433FE00EC7BCE /* HomeTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabViewController.swift; sourceTree = "<group>"; };
+		20C06BD52635B40E00EC7BCE /* URLRequestHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLRequestHelpers.swift; sourceTree = "<group>"; };
+		20C06BD62635B40E00EC7BCE /* ApiDefinition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiDefinition.swift; sourceTree = "<group>"; };
 		DBD22A9EB407D04BF941A535 /* Pods-YT Private Subscriptions.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YT Private Subscriptions.debug.xcconfig"; path = "Target Support Files/Pods-YT Private Subscriptions/Pods-YT Private Subscriptions.debug.xcconfig"; sourceTree = "<group>"; };
 		EE77539F7325DD1D94057DA4 /* Pods-YT Private Subscriptions.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YT Private Subscriptions.release.xcconfig"; path = "Target Support Files/Pods-YT Private Subscriptions/Pods-YT Private Subscriptions.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -108,6 +112,8 @@
 		20C06BD12635AEB500EC7BCE /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				20C06BD62635B40E00EC7BCE /* ApiDefinition.swift */,
+				20C06BD52635B40E00EC7BCE /* URLRequestHelpers.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -268,8 +274,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2086D6A026340CBD00F98E4A /* AppDelegate.swift in Sources */,
+				20C06BD82635B40E00EC7BCE /* ApiDefinition.swift in Sources */,
 				20C06BC926342EF100EC7BCE /* SubscriptionsViewController.swift in Sources */,
 				2086D6A226340CBD00F98E4A /* SceneDelegate.swift in Sources */,
+				20C06BD72635B40E00EC7BCE /* URLRequestHelpers.swift in Sources */,
 				20C06BC626342A3200EC7BCE /* ExploreViewController.swift in Sources */,
 				20C06BCC263433FE00EC7BCE /* HomeTabViewController.swift in Sources */,
 			);
