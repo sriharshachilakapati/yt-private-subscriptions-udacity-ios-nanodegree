@@ -67,17 +67,73 @@
 		2086D69E26340CBD00F98E4A /* YT Private Subscriptions */ = {
 			isa = PBXGroup;
 			children = (
+				20C06BD32635AED400EC7BCE /* Data */,
+				20C06BD02635AE6D00EC7BCE /* Controllers */,
+				20C06BCF2635AE5200EC7BCE /* Application */,
+				20C06BCE2635AE3C00EC7BCE /* View */,
+				2086D6A826340CBF00F98E4A /* Assets.xcassets */,
+				2086D6AD26340CBF00F98E4A /* Info.plist */,
+			);
+			path = "YT Private Subscriptions";
+			sourceTree = "<group>";
+		};
+		20C06BCE2635AE3C00EC7BCE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2086D6A526340CBD00F98E4A /* Main.storyboard */,
+				2086D6AA26340CBF00F98E4A /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		20C06BCF2635AE5200EC7BCE /* Application */ = {
+			isa = PBXGroup;
+			children = (
 				2086D69F26340CBD00F98E4A /* AppDelegate.swift */,
 				2086D6A126340CBD00F98E4A /* SceneDelegate.swift */,
-				2086D6A526340CBD00F98E4A /* Main.storyboard */,
-				2086D6A826340CBF00F98E4A /* Assets.xcassets */,
-				2086D6AA26340CBF00F98E4A /* LaunchScreen.storyboard */,
-				2086D6AD26340CBF00F98E4A /* Info.plist */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		20C06BD02635AE6D00EC7BCE /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
 				20C06BC526342A3200EC7BCE /* ExploreViewController.swift */,
 				20C06BC826342EF100EC7BCE /* SubscriptionsViewController.swift */,
 				20C06BCB263433FE00EC7BCE /* HomeTabViewController.swift */,
 			);
-			path = "YT Private Subscriptions";
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		20C06BD12635AEB500EC7BCE /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		20C06BD22635AEC400EC7BCE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		20C06BD32635AED400EC7BCE /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				20C06BD12635AEB500EC7BCE /* Network */,
+				20C06BD42635AEEB00EC7BCE /* Repository */,
+				20C06BD22635AEC400EC7BCE /* Models */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		20C06BD42635AEEB00EC7BCE /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repository;
 			sourceTree = "<group>";
 		};
 		22F2A0C9DBCFEA166F4177A2 /* Frameworks */ = {
