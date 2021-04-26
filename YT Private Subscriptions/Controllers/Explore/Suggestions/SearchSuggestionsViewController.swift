@@ -48,3 +48,41 @@ extension SearchSuggestionsViewController: UITableViewDataSource, UITableViewDel
         return cell
     }
 }
+
+extension SearchSuggestionsViewController {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardShowOrHide(notification:)),
+            name: UIResponder.keyboardWillChangeFrameNotification,
+            object: nil
+        )
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
+    }
+
+    @objc private func keyboardShowOrHide(notification: NSNotification) {
+        guard let userInfo = notification.userInfo,
+              let duration = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber,
+              let curve = userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber,
+              let keyboardFrameEnd = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue
+        else { return }
+
+        let curveOption = UIView.AnimationOptions(rawValue: curve.uintValue << 16)
+        let keyboardFrameEndRectFromView = view.convert(keyboardFrameEnd.cgRectValue, from: nil)
+
+        UIView.animate(withDuration: duration.doubleValue,
+                       delay: 0,
+                       options: [curveOption, .beginFromCurrentState]) {
+            self.view.frame = CGRect(x: 0,
+                                     y: 0,
+                                     width: keyboardFrameEndRectFromView.width,
+                                     height: keyboardFrameEndRectFromView.origin.y)
+        }
+    }
+}

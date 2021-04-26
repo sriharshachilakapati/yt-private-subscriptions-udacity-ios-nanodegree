@@ -12,6 +12,10 @@ class ExploreViewController: UIViewController {
         let suggestionsVC = storyboard?.instantiateViewController(identifier: String(describing: SearchSuggestionsViewController.self))
         let searchController = UISearchController(searchResultsController: suggestionsVC)
 
+        if #available(iOS 13.0, *) {
+            suggestionsVC?.overrideUserInterfaceStyle = .dark
+        }
+
         searchController.searchResultsUpdater = suggestionsVC as? UISearchResultsUpdating
         return searchController
     }()

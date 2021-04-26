@@ -80,7 +80,6 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="oub-pu-ua3"/>
-                        <color key="backgroundColor" red="0.5" green="0.5" blue="0.5" alpha="0.46279260496430047" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="MYx-Ue-yvi" firstAttribute="top" secondItem="oub-pu-ua3" secondAttribute="top" id="EIo-L3-RjM"/>
                             <constraint firstItem="oub-pu-ua3" firstAttribute="trailing" secondItem="MYx-Ue-yvi" secondAttribute="trailing" id="OcS-dl-M05"/>
@@ -94,7 +93,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AJN-AK-OLe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2064" y="463"/>
+            <point key="canvasLocation" x="1946" y="483"/>
         </scene>
         <!--Subscriptions-->
         <scene sceneID="4b3-Dy-ev1">
