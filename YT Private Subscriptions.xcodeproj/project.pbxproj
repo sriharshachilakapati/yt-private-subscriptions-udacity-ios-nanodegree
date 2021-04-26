@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2027E4D226369BDB003A58C8 /* YouTubeApis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2027E4D126369BDB003A58C8 /* YouTubeApis.swift */; };
+		2027E4D526369C0C003A58C8 /* SearchSuggestionsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2027E4D426369C0C003A58C8 /* SearchSuggestionsModel.swift */; };
 		2086D6A026340CBD00F98E4A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2086D69F26340CBD00F98E4A /* AppDelegate.swift */; };
 		2086D6A226340CBD00F98E4A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2086D6A126340CBD00F98E4A /* SceneDelegate.swift */; };
 		2086D6A726340CBD00F98E4A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2086D6A526340CBD00F98E4A /* Main.storyboard */; };
@@ -17,11 +19,15 @@
 		20C06BCC263433FE00EC7BCE /* HomeTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C06BCB263433FE00EC7BCE /* HomeTabViewController.swift */; };
 		20C06BD72635B40E00EC7BCE /* URLRequestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C06BD52635B40E00EC7BCE /* URLRequestHelpers.swift */; };
 		20C06BD82635B40E00EC7BCE /* ApiDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20C06BD62635B40E00EC7BCE /* ApiDefinition.swift */; };
+		20F9D7A9263684560002EB97 /* SearchSuggestionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F9D7A8263684560002EB97 /* SearchSuggestionsViewController.swift */; };
+		20F9D7AD263685010002EB97 /* SearchSuggestionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20F9D7AC263685010002EB97 /* SearchSuggestionsViewModel.swift */; };
 		F3059687AF4B326FC77D00F3 /* Pods_YT_Private_Subscriptions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 048E7AE56905C6E0798DCE9D /* Pods_YT_Private_Subscriptions.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		048E7AE56905C6E0798DCE9D /* Pods_YT_Private_Subscriptions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YT_Private_Subscriptions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2027E4D126369BDB003A58C8 /* YouTubeApis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouTubeApis.swift; sourceTree = "<group>"; };
+		2027E4D426369C0C003A58C8 /* SearchSuggestionsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSuggestionsModel.swift; sourceTree = "<group>"; };
 		2086D69C26340CBD00F98E4A /* YT Private Subscriptions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "YT Private Subscriptions.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2086D69F26340CBD00F98E4A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2086D6A126340CBD00F98E4A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -34,6 +40,8 @@
 		20C06BCB263433FE00EC7BCE /* HomeTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabViewController.swift; sourceTree = "<group>"; };
 		20C06BD52635B40E00EC7BCE /* URLRequestHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLRequestHelpers.swift; sourceTree = "<group>"; };
 		20C06BD62635B40E00EC7BCE /* ApiDefinition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiDefinition.swift; sourceTree = "<group>"; };
+		20F9D7A8263684560002EB97 /* SearchSuggestionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSuggestionsViewController.swift; sourceTree = "<group>"; };
+		20F9D7AC263685010002EB97 /* SearchSuggestionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSuggestionsViewModel.swift; sourceTree = "<group>"; };
 		DBD22A9EB407D04BF941A535 /* Pods-YT Private Subscriptions.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YT Private Subscriptions.debug.xcconfig"; path = "Target Support Files/Pods-YT Private Subscriptions/Pods-YT Private Subscriptions.debug.xcconfig"; sourceTree = "<group>"; };
 		EE77539F7325DD1D94057DA4 /* Pods-YT Private Subscriptions.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YT Private Subscriptions.release.xcconfig"; path = "Target Support Files/Pods-YT Private Subscriptions/Pods-YT Private Subscriptions.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -102,7 +110,7 @@
 		20C06BD02635AE6D00EC7BCE /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				20C06BC526342A3200EC7BCE /* ExploreViewController.swift */,
+				20F9D7A62636841C0002EB97 /* Explore */,
 				20C06BC826342EF100EC7BCE /* SubscriptionsViewController.swift */,
 				20C06BCB263433FE00EC7BCE /* HomeTabViewController.swift */,
 			);
@@ -114,6 +122,7 @@
 			children = (
 				20C06BD62635B40E00EC7BCE /* ApiDefinition.swift */,
 				20C06BD52635B40E00EC7BCE /* URLRequestHelpers.swift */,
+				2027E4D126369BDB003A58C8 /* YouTubeApis.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -121,6 +130,7 @@
 		20C06BD22635AEC400EC7BCE /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				2027E4D426369C0C003A58C8 /* SearchSuggestionsModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -140,6 +150,24 @@
 			children = (
 			);
 			path = Repository;
+			sourceTree = "<group>";
+		};
+		20F9D7A62636841C0002EB97 /* Explore */ = {
+			isa = PBXGroup;
+			children = (
+				20F9D7A7263684310002EB97 /* Suggestions */,
+				20C06BC526342A3200EC7BCE /* ExploreViewController.swift */,
+			);
+			path = Explore;
+			sourceTree = "<group>";
+		};
+		20F9D7A7263684310002EB97 /* Suggestions */ = {
+			isa = PBXGroup;
+			children = (
+				20F9D7A8263684560002EB97 /* SearchSuggestionsViewController.swift */,
+				20F9D7AC263685010002EB97 /* SearchSuggestionsViewModel.swift */,
+			);
+			path = Suggestions;
 			sourceTree = "<group>";
 		};
 		22F2A0C9DBCFEA166F4177A2 /* Frameworks */ = {
@@ -273,8 +301,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20F9D7A9263684560002EB97 /* SearchSuggestionsViewController.swift in Sources */,
 				2086D6A026340CBD00F98E4A /* AppDelegate.swift in Sources */,
+				2027E4D226369BDB003A58C8 /* YouTubeApis.swift in Sources */,
 				20C06BD82635B40E00EC7BCE /* ApiDefinition.swift in Sources */,
+				2027E4D526369C0C003A58C8 /* SearchSuggestionsModel.swift in Sources */,
+				20F9D7AD263685010002EB97 /* SearchSuggestionsViewModel.swift in Sources */,
 				20C06BC926342EF100EC7BCE /* SubscriptionsViewController.swift in Sources */,
 				2086D6A226340CBD00F98E4A /* SceneDelegate.swift in Sources */,
 				20C06BD72635B40E00EC7BCE /* URLRequestHelpers.swift in Sources */,

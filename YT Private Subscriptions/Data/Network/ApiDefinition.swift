@@ -24,14 +24,29 @@ struct BinaryResponse: Codable {
 struct ApiDefinition<RequestType: Encodable, ResponseType: Decodable> {
     let url: String
     let method: HttpMethod
-    let getDecodableResponseRange: (Data) -> Range<Int> = { data in 0 ..< data.count }
-    let headers: () -> [String: String] = { [:] }
+    let getDecodableResponseRange: (Data) -> Range<Int>
+    let headers: () -> [String: String]
+
+    init(url: String, method: HttpMethod, getDecodableResponseRange: @escaping (Data) -> Range<Int>, headers: @escaping () -> [String: String]) {
+        self.url = url
+        self.method = method
+        self.getDecodableResponseRange = getDecodableResponseRange
+        self.headers = headers
+    }
+
+    init(url: String, method: HttpMethod, getDecodableResponseRange: @escaping (Data) -> Range<Int>) {
+        self.init(url: url, method: method, getDecodableResponseRange: getDecodableResponseRange, headers: { [:] })
+    }
+
+    init(url: String, method: HttpMethod) {
+        self.init(url: url, method: method, getDecodableResponseRange: { data in 0 ..< data.count}, headers: { [:] })
+    }
 
     /// Calls the API endpoint with some `payload` and returns the response in an `Observable`
     /// - Parameters:
     ///   - payload: The payload that needs to be sent across the network.
     /// - Returns: An Observable that allows observing values
-    func performCall(withPayload payload: RequestType) -> Observable<ResponseType> {
+    func call(withPayload payload: RequestType) -> Observable<ResponseType> {
         let url = URL(string: self.url)!
 
         var request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: 500)

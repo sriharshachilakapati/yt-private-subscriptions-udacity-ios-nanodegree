@@ -47,6 +47,55 @@
             </objects>
             <point key="canvasLocation" x="1112" y="483"/>
         </scene>
+        <!--Search Suggestions View Controller-->
+        <scene sceneID="ann-CT-HwW">
+            <objects>
+                <viewController storyboardIdentifier="SearchSuggestionsViewController" interfaceStyle="dark" id="bVe-yV-uoQ" customClass="SearchSuggestionsViewController" customModule="YT_Private_Subscriptions" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WNw-ej-Tsi">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MYx-Ue-yvi">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" red="0.5" green="0.5" blue="0.5" alpha="0.0" colorSpace="custom" customColorSpace="displayP3"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" textLabel="Cz7-Ee-gHF" style="IBUITableViewCellStyleDefault" id="eDE-HK-V5p">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eDE-HK-V5p" id="0YJ-2c-52L">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Cz7-Ee-gHF">
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="oub-pu-ua3"/>
+                        <color key="backgroundColor" red="0.5" green="0.5" blue="0.5" alpha="0.46279260496430047" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="MYx-Ue-yvi" firstAttribute="top" secondItem="oub-pu-ua3" secondAttribute="top" id="EIo-L3-RjM"/>
+                            <constraint firstItem="oub-pu-ua3" firstAttribute="trailing" secondItem="MYx-Ue-yvi" secondAttribute="trailing" id="OcS-dl-M05"/>
+                            <constraint firstItem="oub-pu-ua3" firstAttribute="bottom" secondItem="MYx-Ue-yvi" secondAttribute="bottom" id="YSG-db-6vd"/>
+                            <constraint firstItem="MYx-Ue-yvi" firstAttribute="leading" secondItem="oub-pu-ua3" secondAttribute="leading" id="t1a-fJ-yUz"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="MYx-Ue-yvi" id="FoC-ld-dTa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AJN-AK-OLe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2064" y="463"/>
+        </scene>
         <!--Subscriptions-->
         <scene sceneID="4b3-Dy-ev1">
             <objects>

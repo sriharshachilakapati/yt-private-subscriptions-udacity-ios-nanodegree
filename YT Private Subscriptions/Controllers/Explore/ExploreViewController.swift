@@ -8,7 +8,13 @@
 import UIKit
 
 class ExploreViewController: UIViewController {
-    private var searchController = UISearchController(searchResultsController: nil)
+    private lazy var searchController: UISearchController = {
+        let suggestionsVC = storyboard?.instantiateViewController(identifier: String(describing: SearchSuggestionsViewController.self))
+        let searchController = UISearchController(searchResultsController: suggestionsVC)
+
+        searchController.searchResultsUpdater = suggestionsVC as? UISearchResultsUpdating
+        return searchController
+    }()
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
