@@ -7,16 +7,19 @@
 
 import UIKit
 
-class ExploreViewController: UIViewController {
+class ExploreViewController: UIViewController, SearchResultHandler {
     private lazy var searchController: UISearchController = {
         let suggestionsVC = storyboard?.instantiateViewController(identifier: String(describing: SearchSuggestionsViewController.self))
-        let searchController = UISearchController(searchResultsController: suggestionsVC)
+            as? SearchSuggestionsViewController
 
         if #available(iOS 13.0, *) {
             suggestionsVC?.overrideUserInterfaceStyle = .dark
         }
 
-        searchController.searchResultsUpdater = suggestionsVC as? UISearchResultsUpdating
+        let searchController = UISearchController(searchResultsController: suggestionsVC)
+        searchController.searchResultsUpdater = suggestionsVC
+        suggestionsVC?.searchResultHandler = self
+
         return searchController
     }()
 
@@ -37,5 +40,10 @@ class ExploreViewController: UIViewController {
         UIView.transition(with: superView, duration: 0.3, options: .transitionCrossDissolve) {
             self.parent?.navigationItem.searchController = nil
         }
+    }
+
+    func handleSearchResult(_ result: String) {
+        print("Selected \(result)")
+        searchController.searchBar.text = result
     }
 }

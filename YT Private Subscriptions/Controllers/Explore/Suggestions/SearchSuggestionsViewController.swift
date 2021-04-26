@@ -9,10 +9,16 @@ import UIKit
 import RxSwift
 import RxCocoa
 
+protocol SearchResultHandler {
+    func handleSearchResult(_ result: String)
+}
+
 class SearchSuggestionsViewController: UIViewController, UISearchResultsUpdating {
     private let disposeBag = DisposeBag()
 
     @IBOutlet weak var tableView: UITableView!
+
+    var searchResultHandler: SearchResultHandler? = nil
 
     private var viewModel = SearchSuggestionsViewModel()
     private var suggestions = [String]()
@@ -46,6 +52,12 @@ extension SearchSuggestionsViewController: UITableViewDataSource, UITableViewDel
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = suggestions[indexPath.row]
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let item = suggestions[indexPath.row]
+        searchResultHandler?.handleSearchResult(item)
+        dismiss(animated: true, completion: nil)
     }
 }
 
