@@ -8,13 +8,11 @@
 import Foundation
 
 struct SearchSuggestionsRequest: Encodable {
-    let key = YOUTUBE_API_KEY
     let ds = "yt"
     let client = "youtube"
     let query: String
 
     enum CodingKeys: String, CodingKey {
-        case key
         case ds
         case client
         case query = "q"
