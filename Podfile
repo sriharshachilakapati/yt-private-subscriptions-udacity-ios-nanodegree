@@ -10,5 +10,6 @@ target 'YT Private Subscriptions' do
   pod 'RxCocoa', '6.1.0'
   pod 'Alamofire', '~> 5.2'
   pod "youtube-ios-player-helper", "~> 1.0.3"
+  pod 'SDWebImage', '~> 5.0'
 
 end

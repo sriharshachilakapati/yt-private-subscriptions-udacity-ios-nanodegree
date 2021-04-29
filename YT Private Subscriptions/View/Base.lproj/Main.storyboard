@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -38,14 +39,86 @@
                     <view key="view" contentMode="scaleToFill" id="v57-Va-re4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ufe-1f-0qL">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="youtube#video" rowHeight="114" id="2AA-bJ-1E7" customClass="YoutubeVideoSearchResultCell" customModule="YT_Private_Subscriptions" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="114"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2AA-bJ-1E7" id="ZuQ-wm-PMa">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="114"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1St-1w-prx">
+                                                    <rect key="frame" x="20" y="11" width="120" height="93"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="120" id="USS-J1-4Ur"/>
+                                                        <constraint firstAttribute="height" constant="90" id="n33-L2-Re7"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Video Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s8l-3a-s54">
+                                                    <rect key="frame" x="155" y="16" width="239" height="27"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Channel Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QgC-Mr-Ru2">
+                                                    <rect key="frame" x="155" y="58" width="239" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="s8l-3a-s54" firstAttribute="leading" secondItem="1St-1w-prx" secondAttribute="trailing" constant="15" id="1rA-G3-uMd"/>
+                                                <constraint firstItem="QgC-Mr-Ru2" firstAttribute="top" secondItem="s8l-3a-s54" secondAttribute="bottom" constant="15" id="92e-bI-ezg"/>
+                                                <constraint firstItem="1St-1w-prx" firstAttribute="leading" secondItem="ZuQ-wm-PMa" secondAttribute="leadingMargin" id="9jN-ke-G9Z"/>
+                                                <constraint firstItem="s8l-3a-s54" firstAttribute="trailing" secondItem="ZuQ-wm-PMa" secondAttribute="trailingMargin" id="N2u-Xw-qib"/>
+                                                <constraint firstItem="s8l-3a-s54" firstAttribute="top" secondItem="ZuQ-wm-PMa" secondAttribute="topMargin" constant="5" id="YBg-Dk-3Ga"/>
+                                                <constraint firstAttribute="bottom" secondItem="1St-1w-prx" secondAttribute="bottom" constant="10" id="iAQ-ZY-MAg"/>
+                                                <constraint firstItem="QgC-Mr-Ru2" firstAttribute="leading" secondItem="1St-1w-prx" secondAttribute="trailing" constant="15" id="kAt-oa-5xY"/>
+                                                <constraint firstItem="QgC-Mr-Ru2" firstAttribute="trailing" secondItem="ZuQ-wm-PMa" secondAttribute="trailingMargin" id="naB-uo-6Ki"/>
+                                                <constraint firstItem="1St-1w-prx" firstAttribute="top" secondItem="ZuQ-wm-PMa" secondAttribute="topMargin" id="stZ-Z2-gDH"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="channelNameLabel" destination="QgC-Mr-Ru2" id="WJR-77-hWm"/>
+                                            <outlet property="thumbnailImageView" destination="1St-1w-prx" id="wcn-sx-3gJ"/>
+                                            <outlet property="videoTitleLabel" destination="s8l-3a-s54" id="xpS-Bl-tOR"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter a Query to see results" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wh2-mO-WWW">
+                                <rect key="frame" x="0.0" y="398" width="414" height="105.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="44"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="mlZ-pU-u5e"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="mlZ-pU-u5e" firstAttribute="bottom" secondItem="Ufe-1f-0qL" secondAttribute="bottom" id="2Ov-iS-XSG"/>
+                            <constraint firstItem="mlZ-pU-u5e" firstAttribute="leading" secondItem="Ufe-1f-0qL" secondAttribute="leading" id="4w4-Px-00E"/>
+                            <constraint firstItem="wh2-mO-WWW" firstAttribute="centerY" secondItem="mlZ-pU-u5e" secondAttribute="centerY" id="GKE-Ko-Jkp"/>
+                            <constraint firstItem="wh2-mO-WWW" firstAttribute="leading" secondItem="mlZ-pU-u5e" secondAttribute="leading" id="bGR-Bv-Nk2"/>
+                            <constraint firstItem="mlZ-pU-u5e" firstAttribute="trailing" secondItem="Ufe-1f-0qL" secondAttribute="trailing" id="gSz-hK-c4c"/>
+                            <constraint firstItem="mlZ-pU-u5e" firstAttribute="trailing" secondItem="wh2-mO-WWW" secondAttribute="trailing" id="ppE-sG-tVp"/>
+                            <constraint firstItem="mlZ-pU-u5e" firstAttribute="top" secondItem="Ufe-1f-0qL" secondAttribute="top" id="ugD-6S-R4b"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Explore" image="magnifyingglass" catalog="system" id="nLa-v8-eAG"/>
+                    <connections>
+                        <outlet property="enterQueryLabel" destination="wh2-mO-WWW" id="BNg-2f-JkE"/>
+                        <outlet property="tableView" destination="Ufe-1f-0qL" id="wdy-KR-mkD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sYH-IE-dN8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1112" y="483"/>
+            <point key="canvasLocation" x="1111.5942028985507" y="482.8125"/>
         </scene>
         <!--Search Suggestions View Controller-->
         <scene sceneID="ann-CT-HwW">
@@ -136,5 +209,8 @@
     <resources>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="tray.fill" catalog="system" width="128" height="88"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

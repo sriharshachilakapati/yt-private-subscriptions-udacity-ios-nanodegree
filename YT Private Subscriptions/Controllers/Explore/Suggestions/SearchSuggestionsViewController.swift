@@ -98,3 +98,10 @@ extension SearchSuggestionsViewController {
         }
     }
 }
+
+extension SearchSuggestionsViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchResultHandler?.handleSearchResult(viewModel.searchText)
+        dismiss(animated: true, completion: nil)
+    }
+}

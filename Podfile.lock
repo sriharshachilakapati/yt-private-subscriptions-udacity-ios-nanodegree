@@ -6,12 +6,16 @@ PODS:
   - RxRelay (6.1.0):
     - RxSwift (= 6.1.0)
   - RxSwift (6.1.0)
+  - SDWebImage (5.11.1):
+    - SDWebImage/Core (= 5.11.1)
+  - SDWebImage/Core (5.11.1)
   - youtube-ios-player-helper (1.0.3)
 
 DEPENDENCIES:
   - Alamofire (~> 5.2)
   - RxCocoa (= 6.1.0)
   - RxSwift (= 6.1.0)
+  - SDWebImage (~> 5.0)
   - youtube-ios-player-helper (~> 1.0.3)
 
 SPEC REPOS:
@@ -20,6 +24,7 @@ SPEC REPOS:
     - RxCocoa
     - RxRelay
     - RxSwift
+    - SDWebImage
     - youtube-ios-player-helper
 
 SPEC CHECKSUMS:
@@ -27,8 +32,9 @@ SPEC CHECKSUMS:
   RxCocoa: 5c51f02d562cbd94629f6c26cf0c80fe4ab8d343
   RxRelay: 483e1a19fad961b41f0b0c0bee506f46c1ae14fe
   RxSwift: a834e5c538e89eca0cae86f403f4fbf0336786ce
+  SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
   youtube-ios-player-helper: 0185c57db23c80d63d6ca11251d110abb8a4ca61
 
-PODFILE CHECKSUM: fac87cd650cd74796696b4d0c74b8b871f0cd6f9
+PODFILE CHECKSUM: 9b38044c7a9c5ad1eff4ca16f32ae6ed4be35270
 
 COCOAPODS: 1.10.1

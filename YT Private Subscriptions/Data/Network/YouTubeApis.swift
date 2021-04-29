@@ -8,9 +8,15 @@
 import Foundation
 
 let YOUTUBE_API_KEY = "<INSERT-YOUR-API-KEY-HERE>"
+let BASE_URL = "https://www.googleapis.com/youtube/v3"
 
 let searchSuggestionsApi = ApiDefinition<SearchSuggestionsRequest, SearchSuggestionsResponse>(
     url: "https://suggestqueries.google.com/complete/search",
     method: .get,
     getDecodableResponseRange: { (data: Data) in 19 ..< data.count - 1 }
+)
+
+let searchVideosApi = ApiDefinition<SearchRequest, SearchResponse>(
+    url: BASE_URL + "/search",
+    method: .get
 )

@@ -6,8 +6,17 @@
 //
 
 import UIKit
+import RxSwift
 
 class ExploreViewController: UIViewController, SearchResultHandler {
+
+    @IBOutlet weak var enterQueryLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
+
+    private let disposeBag = DisposeBag()
+    private let viewModel = ExploreViewModel()
+    private let dataSource = ExploreSearchResultDataSource()
+
     private lazy var searchController: UISearchController = {
         let suggestionsVC = storyboard?.instantiateViewController(identifier: String(describing: SearchSuggestionsViewController.self))
             as? SearchSuggestionsViewController
@@ -18,10 +27,24 @@ class ExploreViewController: UIViewController, SearchResultHandler {
 
         let searchController = UISearchController(searchResultsController: suggestionsVC)
         searchController.searchResultsUpdater = suggestionsVC
+        searchController.searchBar.delegate = suggestionsVC
         suggestionsVC?.searchResultHandler = self
 
         return searchController
     }()
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        tableView.dataSource = dataSource
+        viewModel.searchResults
+            .subscribe(onNext: { results in
+                self.dataSource.searchResults = results
+                self.enterQueryLabel.isHidden = results.count > 0
+                self.tableView.reloadData()
+            })
+            .disposed(by: disposeBag)
+    }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -43,7 +66,7 @@ class ExploreViewController: UIViewController, SearchResultHandler {
     }
 
     func handleSearchResult(_ result: String) {
-        print("Selected \(result)")
         searchController.searchBar.text = result
+        viewModel.searchText = result
     }
 }
