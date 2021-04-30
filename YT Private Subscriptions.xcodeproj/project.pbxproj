@@ -78,6 +78,13 @@
 			path = "Video Player";
 			sourceTree = "<group>";
 		};
+		2027E504263C6872003A58C8 /* Persistent */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Persistent;
+			sourceTree = "<group>";
+		};
 		2086D69326340CBD00F98E4A = {
 			isa = PBXGroup;
 			children = (
@@ -102,20 +109,20 @@
 				20C06BD32635AED400EC7BCE /* Data */,
 				20C06BD02635AE6D00EC7BCE /* Controllers */,
 				20C06BCF2635AE5200EC7BCE /* Application */,
-				20C06BCE2635AE3C00EC7BCE /* View */,
+				20C06BCE2635AE3C00EC7BCE /* Views */,
 				2086D6A826340CBF00F98E4A /* Assets.xcassets */,
 				2086D6AD26340CBF00F98E4A /* Info.plist */,
 			);
 			path = "YT Private Subscriptions";
 			sourceTree = "<group>";
 		};
-		20C06BCE2635AE3C00EC7BCE /* View */ = {
+		20C06BCE2635AE3C00EC7BCE /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				2086D6A526340CBD00F98E4A /* Main.storyboard */,
 				2086D6AA26340CBF00F98E4A /* LaunchScreen.storyboard */,
 			);
-			path = View;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		20C06BCF2635AE5200EC7BCE /* Application */ = {
@@ -130,6 +137,7 @@
 		20C06BD02635AE6D00EC7BCE /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				20F9D7A7263684310002EB97 /* Search Suggestions */,
 				2027E4FB263B32C1003A58C8 /* Video Player */,
 				20F9D7A62636841C0002EB97 /* Explore */,
 				20C06BC826342EF100EC7BCE /* SubscriptionsViewController.swift */,
@@ -161,24 +169,16 @@
 		20C06BD32635AED400EC7BCE /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				2027E504263C6872003A58C8 /* Persistent */,
 				20C06BD12635AEB500EC7BCE /* Network */,
-				20C06BD42635AEEB00EC7BCE /* Repository */,
 				20C06BD22635AEC400EC7BCE /* Models */,
 			);
 			path = Data;
 			sourceTree = "<group>";
 		};
-		20C06BD42635AEEB00EC7BCE /* Repository */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Repository;
-			sourceTree = "<group>";
-		};
 		20F9D7A62636841C0002EB97 /* Explore */ = {
 			isa = PBXGroup;
 			children = (
-				20F9D7A7263684310002EB97 /* Suggestions */,
 				20C06BC526342A3200EC7BCE /* ExploreViewController.swift */,
 				2027E4DB2639E410003A58C8 /* YoutubeVideoSearchResultCell.swift */,
 				2027E4F4263AF892003A58C8 /* ExploreViewModel.swift */,
@@ -187,13 +187,13 @@
 			path = Explore;
 			sourceTree = "<group>";
 		};
-		20F9D7A7263684310002EB97 /* Suggestions */ = {
+		20F9D7A7263684310002EB97 /* Search Suggestions */ = {
 			isa = PBXGroup;
 			children = (
 				20F9D7A8263684560002EB97 /* SearchSuggestionsViewController.swift */,
 				20F9D7AC263685010002EB97 /* SearchSuggestionsViewModel.swift */,
 			);
-			path = Suggestions;
+			path = "Search Suggestions";
 			sourceTree = "<group>";
 		};
 		22F2A0C9DBCFEA166F4177A2 /* Frameworks */ = {
