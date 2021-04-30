@@ -36,7 +36,9 @@ class ExploreViewController: UIViewController, SearchResultHandler {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tableView.delegate = self
         tableView.dataSource = dataSource
+
         viewModel.searchResults
             .subscribe(onNext: { results in
                 self.dataSource.searchResults = results
@@ -68,5 +70,32 @@ class ExploreViewController: UIViewController, SearchResultHandler {
     func handleSearchResult(_ result: String) {
         searchController.searchBar.text = result
         viewModel.searchText = result
+    }
+}
+
+extension ExploreViewController: UITableViewDelegate {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "toVideoPlayerScreen" else { return }
+
+        guard let sender = sender as? VideoPlayerInput,
+              let destVC = segue.destination as? VideoPlayerViewController
+        else { return }
+
+        destVC.input = sender
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+
+        let result = dataSource.searchResults[indexPath.row]
+        let input = VideoPlayerInput(
+            videoId: result.id.videoId,
+            videoTitle: result.snippet.title,
+            videoDescription: result.snippet.description,
+            channelId: result.snippet.channelId,
+            channelName: result.snippet.channelTitle
+        )
+
+        performSegue(withIdentifier: "toVideoPlayerScreen", sender: input)
     }
 }

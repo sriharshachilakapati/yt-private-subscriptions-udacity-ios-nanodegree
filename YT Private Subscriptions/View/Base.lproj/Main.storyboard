@@ -15,6 +15,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="wbO-SA-TVY">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" red="0.70822713832662565" green="0.054203465089276613" blue="0.035867648983342083" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
@@ -114,11 +115,12 @@
                     <connections>
                         <outlet property="enterQueryLabel" destination="wh2-mO-WWW" id="BNg-2f-JkE"/>
                         <outlet property="tableView" destination="Ufe-1f-0qL" id="wdy-KR-mkD"/>
+                        <segue destination="5ay-Pd-Bhe" kind="show" identifier="toVideoPlayerScreen" id="iV8-Zv-iJr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sYH-IE-dN8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1111.5942028985507" y="482.8125"/>
+            <point key="canvasLocation" x="1112" y="483"/>
         </scene>
         <!--Search Suggestions View Controller-->
         <scene sceneID="ann-CT-HwW">
@@ -179,10 +181,100 @@
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Subscriptions" image="tray.fill" catalog="system" id="Q3t-DW-C6b"/>
+                    <connections>
+                        <segue destination="5ay-Pd-Bhe" kind="show" identifier="toVideoPlayerScreen" id="so2-kp-0lH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nqq-Au-36Q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1112" y="-220"/>
+        </scene>
+        <!--Video Player-->
+        <scene sceneID="b4b-gl-ehP">
+            <objects>
+                <viewController id="5ay-Pd-Bhe" userLabel="Video Player" customClass="VideoPlayerViewController" customModule="YT_Private_Subscriptions" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Fiy-IC-nnY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="imy-31-Mx0" customClass="YTPlayerView">
+                                <rect key="frame" x="0.0" y="88" width="414" height="300"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="hm8-dh-XNv"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Video Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A21-9S-1HL">
+                                <rect key="frame" x="15" y="403" width="384" height="30"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IZZ-wG-qfP">
+                                <rect key="frame" x="275" y="443" width="124" height="32"/>
+                                <color key="backgroundColor" red="0.70822713829999995" green="0.05420346509" blue="0.03586764898" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                <inset key="contentEdgeInsets" minX="20" minY="5" maxX="20" maxY="5"/>
+                                <state key="normal" title="Subscribe">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="onSubscribeButtonClicked" destination="5ay-Pd-Bhe" eventType="touchUpInside" id="nwM-Gd-pZ3"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Channel Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c8f-dk-9aj">
+                                <rect key="frame" x="15" y="448" width="245" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="69J-Cp-VuJ">
+                                <rect key="frame" x="15" y="498.5" width="384" height="21.5"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Video Description goes here" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rzc-n7-MEC">
+                                <rect key="frame" x="15" y="535" width="384" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="2mk-op-Svm"/>
+                        <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="2mk-op-Svm" firstAttribute="trailing" secondItem="69J-Cp-VuJ" secondAttribute="trailing" constant="15" id="0J0-Jp-BNE"/>
+                            <constraint firstItem="rzc-n7-MEC" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="2mk-op-Svm" secondAttribute="bottom" constant="-15" id="5KV-kd-G44"/>
+                            <constraint firstItem="IZZ-wG-qfP" firstAttribute="top" secondItem="A21-9S-1HL" secondAttribute="bottom" constant="10" id="HDf-YA-lks"/>
+                            <constraint firstItem="c8f-dk-9aj" firstAttribute="top" secondItem="A21-9S-1HL" secondAttribute="bottom" constant="15" id="Ikm-xx-PCV"/>
+                            <constraint firstItem="rzc-n7-MEC" firstAttribute="leading" secondItem="2mk-op-Svm" secondAttribute="leading" constant="15" id="JmM-Q7-L7l"/>
+                            <constraint firstItem="imy-31-Mx0" firstAttribute="leading" secondItem="2mk-op-Svm" secondAttribute="leading" id="LWh-mq-Ly8"/>
+                            <constraint firstItem="2mk-op-Svm" firstAttribute="trailing" secondItem="A21-9S-1HL" secondAttribute="trailing" constant="15" id="NOq-Rs-0md"/>
+                            <constraint firstItem="imy-31-Mx0" firstAttribute="top" secondItem="2mk-op-Svm" secondAttribute="top" id="Nxs-uX-zIN"/>
+                            <constraint firstItem="c8f-dk-9aj" firstAttribute="leading" secondItem="2mk-op-Svm" secondAttribute="leading" constant="15" id="Pwt-J4-fBq"/>
+                            <constraint firstItem="rzc-n7-MEC" firstAttribute="top" secondItem="69J-Cp-VuJ" secondAttribute="bottom" constant="15" id="aTC-ux-GMm"/>
+                            <constraint firstItem="A21-9S-1HL" firstAttribute="top" secondItem="imy-31-Mx0" secondAttribute="bottom" constant="15" id="bY6-KX-nKQ"/>
+                            <constraint firstItem="A21-9S-1HL" firstAttribute="leading" secondItem="2mk-op-Svm" secondAttribute="leading" constant="15" id="dsZ-XR-Pkb"/>
+                            <constraint firstItem="2mk-op-Svm" firstAttribute="trailing" secondItem="rzc-n7-MEC" secondAttribute="trailing" constant="15" id="gW5-wC-fYS"/>
+                            <constraint firstItem="2mk-op-Svm" firstAttribute="trailing" secondItem="IZZ-wG-qfP" secondAttribute="trailing" constant="15" id="gfp-Qt-wi1"/>
+                            <constraint firstItem="2mk-op-Svm" firstAttribute="trailing" secondItem="imy-31-Mx0" secondAttribute="trailing" id="gxf-Tu-AaO"/>
+                            <constraint firstItem="c8f-dk-9aj" firstAttribute="trailing" secondItem="IZZ-wG-qfP" secondAttribute="leading" constant="-15" id="nY2-JN-q9F"/>
+                            <constraint firstItem="69J-Cp-VuJ" firstAttribute="leading" secondItem="2mk-op-Svm" secondAttribute="leading" constant="15" id="qZj-ZY-kqt"/>
+                            <constraint firstItem="69J-Cp-VuJ" firstAttribute="top" secondItem="c8f-dk-9aj" secondAttribute="bottom" constant="30" id="zdN-zc-4zY"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Video Player" id="BOF-0I-0cE"/>
+                    <connections>
+                        <outlet property="channelNameLabel" destination="c8f-dk-9aj" id="NVt-Dr-o5u"/>
+                        <outlet property="videoDescriptionLabel" destination="rzc-n7-MEC" id="aoc-ZE-eyc"/>
+                        <outlet property="videoPlayerView" destination="imy-31-Mx0" id="6Zl-vo-HKt"/>
+                        <outlet property="videoTitleLabel" destination="A21-9S-1HL" id="uS4-jw-6th"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ulF-Ce-bxX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1944.9275362318842" y="-220.3125"/>
         </scene>
         <!--YT Private Subscriptions-->
         <scene sceneID="GVP-Je-TOl">
@@ -206,9 +298,15 @@
             <point key="canvasLocation" x="270" y="117"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="iV8-Zv-iJr"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="tray.fill" catalog="system" width="128" height="88"/>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
