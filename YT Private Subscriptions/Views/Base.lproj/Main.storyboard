@@ -44,53 +44,6 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ufe-1f-0qL">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="youtube#video" rowHeight="114" id="2AA-bJ-1E7" customClass="YoutubeVideoSearchResultCell" customModule="YT_Private_Subscriptions" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="114"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2AA-bJ-1E7" id="ZuQ-wm-PMa">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="114"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1St-1w-prx">
-                                                    <rect key="frame" x="20" y="11" width="120" height="93"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="120" id="USS-J1-4Ur"/>
-                                                        <constraint firstAttribute="height" constant="90" id="n33-L2-Re7"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Video Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s8l-3a-s54">
-                                                    <rect key="frame" x="155" y="16" width="239" height="27"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Channel Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QgC-Mr-Ru2">
-                                                    <rect key="frame" x="155" y="58" width="239" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="s8l-3a-s54" firstAttribute="leading" secondItem="1St-1w-prx" secondAttribute="trailing" constant="15" id="1rA-G3-uMd"/>
-                                                <constraint firstItem="QgC-Mr-Ru2" firstAttribute="top" secondItem="s8l-3a-s54" secondAttribute="bottom" constant="15" id="92e-bI-ezg"/>
-                                                <constraint firstItem="1St-1w-prx" firstAttribute="leading" secondItem="ZuQ-wm-PMa" secondAttribute="leadingMargin" id="9jN-ke-G9Z"/>
-                                                <constraint firstItem="s8l-3a-s54" firstAttribute="trailing" secondItem="ZuQ-wm-PMa" secondAttribute="trailingMargin" id="N2u-Xw-qib"/>
-                                                <constraint firstItem="s8l-3a-s54" firstAttribute="top" secondItem="ZuQ-wm-PMa" secondAttribute="topMargin" constant="5" id="YBg-Dk-3Ga"/>
-                                                <constraint firstAttribute="bottom" secondItem="1St-1w-prx" secondAttribute="bottom" constant="10" id="iAQ-ZY-MAg"/>
-                                                <constraint firstItem="QgC-Mr-Ru2" firstAttribute="leading" secondItem="1St-1w-prx" secondAttribute="trailing" constant="15" id="kAt-oa-5xY"/>
-                                                <constraint firstItem="QgC-Mr-Ru2" firstAttribute="trailing" secondItem="ZuQ-wm-PMa" secondAttribute="trailingMargin" id="naB-uo-6Ki"/>
-                                                <constraint firstItem="1St-1w-prx" firstAttribute="top" secondItem="ZuQ-wm-PMa" secondAttribute="topMargin" id="stZ-Z2-gDH"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="channelNameLabel" destination="QgC-Mr-Ru2" id="WJR-77-hWm"/>
-                                            <outlet property="thumbnailImageView" destination="1St-1w-prx" id="wcn-sx-3gJ"/>
-                                            <outlet property="videoTitleLabel" destination="s8l-3a-s54" id="xpS-Bl-tOR"/>
-                                        </connections>
-                                    </tableViewCell>
-                                </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter a Query to see results" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wh2-mO-WWW">
                                 <rect key="frame" x="0.0" y="398" width="414" height="105.5"/>

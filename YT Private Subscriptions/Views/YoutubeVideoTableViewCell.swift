@@ -1,14 +1,16 @@
 //
-//  YoutubeVideoSearchResultCell.swift
+//  YoutubeVideoTableViewCell.swift
 //  YT Private Subscriptions
 //
-//  Created by Sri Harsha Chilakapati on 29/04/21.
+//  Created by Sri Harsha Chilakapati on 01/05/21.
 //
 
 import UIKit
 import SDWebImage
 
-class YoutubeVideoSearchResultCell: UITableViewCell {
+class YoutubeVideoTableViewCell: UITableViewCell {
+    static let reuseIdentifier = "youtube#video"
+    static let nibName = String(describing: YoutubeVideoTableViewCell.self)
 
     @IBOutlet weak var thumbnailImageView: UIImageView!
     @IBOutlet weak var videoTitleLabel: UILabel!

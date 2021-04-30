@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="youtube#video" rowHeight="110" id="KGk-i7-Jjw" customClass="YoutubeVideoTableViewCell" customModule="YT_Private_Subscriptions" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="438" height="110"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="438" height="110"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YAM-cO-aWG">
+                        <rect key="frame" x="8" y="8" width="120" height="90"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="120" id="4Vo-R7-GGj"/>
+                            <constraint firstAttribute="height" constant="90" id="YrH-Na-GcD"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Channel Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5SO-DK-Elh">
+                        <rect key="frame" x="144" y="67" width="286" height="21"/>
+                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Video Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fbj-at-Neq">
+                        <rect key="frame" x="144" y="24.5" width="286" height="26.5"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="fbj-at-Neq" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailing" constant="-8" id="5Lw-Cg-2i4"/>
+                    <constraint firstItem="5SO-DK-Elh" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailing" constant="-8" id="6EQ-To-O55"/>
+                    <constraint firstItem="YAM-cO-aWG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="Nx4-e0-qUb"/>
+                    <constraint firstItem="5SO-DK-Elh" firstAttribute="bottom" secondItem="YAM-cO-aWG" secondAttribute="bottom" constant="-10" id="PCX-Jo-yPb"/>
+                    <constraint firstItem="fbj-at-Neq" firstAttribute="leading" secondItem="YAM-cO-aWG" secondAttribute="trailing" constant="16" id="ZNs-DQ-0Ci"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="YAM-cO-aWG" secondAttribute="bottom" constant="8" id="aFF-jG-vuY"/>
+                    <constraint firstItem="YAM-cO-aWG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="c6A-ND-Dm2"/>
+                    <constraint firstItem="fbj-at-Neq" firstAttribute="top" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="hux-GT-Ax2"/>
+                    <constraint firstItem="5SO-DK-Elh" firstAttribute="leading" secondItem="YAM-cO-aWG" secondAttribute="trailing" constant="16" id="mAA-yG-bQ7"/>
+                    <constraint firstItem="5SO-DK-Elh" firstAttribute="top" secondItem="fbj-at-Neq" secondAttribute="bottom" constant="16" id="wPW-UP-7jB"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="channelNameLabel" destination="5SO-DK-Elh" id="FJL-Nc-Q8c"/>
+                <outlet property="thumbnailImageView" destination="YAM-cO-aWG" id="Bzf-aD-mY3"/>
+                <outlet property="videoTitleLabel" destination="fbj-at-Neq" id="BCn-UL-p2e"/>
+            </connections>
+            <point key="canvasLocation" x="223.18840579710147" y="174.77678571428569"/>
+        </tableViewCell>
+    </objects>
+</document>

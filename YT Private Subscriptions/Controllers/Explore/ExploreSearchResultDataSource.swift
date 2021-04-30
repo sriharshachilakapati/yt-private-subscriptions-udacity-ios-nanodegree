@@ -16,7 +16,7 @@ class ExploreSearchResultDataSource: NSObject, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let result = searchResults[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: result.id.kind, for: indexPath) as! YoutubeVideoSearchResultCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: result.id.kind, for: indexPath) as! YoutubeVideoTableViewCell
         cell.bind(data: result)
         return cell
     }

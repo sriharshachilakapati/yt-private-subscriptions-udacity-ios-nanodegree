@@ -36,6 +36,9 @@ class ExploreViewController: UIViewController, SearchResultHandler {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tableView.register(UINib(nibName: YoutubeVideoTableViewCell.nibName, bundle: nil),
+                           forCellReuseIdentifier: YoutubeVideoTableViewCell.reuseIdentifier)
+
         tableView.delegate = self
         tableView.dataSource = dataSource
 
