@@ -92,6 +92,14 @@
 			path = Persistent;
 			sourceTree = "<group>";
 		};
+		2027E51C263D3FFF003A58C8 /* Subscriptions */ = {
+			isa = PBXGroup;
+			children = (
+				20C06BC826342EF100EC7BCE /* SubscriptionsViewController.swift */,
+			);
+			path = Subscriptions;
+			sourceTree = "<group>";
+		};
 		2086D69326340CBD00F98E4A = {
 			isa = PBXGroup;
 			children = (
@@ -146,10 +154,10 @@
 		20C06BD02635AE6D00EC7BCE /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				2027E51C263D3FFF003A58C8 /* Subscriptions */,
 				20F9D7A7263684310002EB97 /* Search Suggestions */,
 				2027E4FB263B32C1003A58C8 /* Video Player */,
 				20F9D7A62636841C0002EB97 /* Explore */,
-				20C06BC826342EF100EC7BCE /* SubscriptionsViewController.swift */,
 				20C06BCB263433FE00EC7BCE /* HomeTabViewController.swift */,
 			);
 			path = Controllers;

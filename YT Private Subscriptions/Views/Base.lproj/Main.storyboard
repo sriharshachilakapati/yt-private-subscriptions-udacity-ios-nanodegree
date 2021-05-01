@@ -130,11 +130,34 @@
                     <view key="view" contentMode="scaleToFill" id="ebf-Fh-M3r">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hQ1-Km-dUh">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subscribe to some channels!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oov-j5-K59">
+                                <rect key="frame" x="0.0" y="398" width="414" height="105.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="44"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="un5-6o-MUD"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="hQ1-Km-dUh" firstAttribute="bottom" secondItem="un5-6o-MUD" secondAttribute="bottom" id="IcA-2f-VKt"/>
+                            <constraint firstItem="un5-6o-MUD" firstAttribute="trailing" secondItem="Oov-j5-K59" secondAttribute="trailing" id="Ii3-SY-KDK"/>
+                            <constraint firstItem="hQ1-Km-dUh" firstAttribute="top" secondItem="un5-6o-MUD" secondAttribute="top" id="N7J-5b-Ru4"/>
+                            <constraint firstItem="Oov-j5-K59" firstAttribute="centerY" secondItem="un5-6o-MUD" secondAttribute="centerY" id="Og4-Lr-tLD"/>
+                            <constraint firstItem="hQ1-Km-dUh" firstAttribute="trailing" secondItem="un5-6o-MUD" secondAttribute="trailing" id="WHc-bG-tbz"/>
+                            <constraint firstItem="Oov-j5-K59" firstAttribute="leading" secondItem="ebf-Fh-M3r" secondAttribute="leading" id="dgI-T5-vLH"/>
+                            <constraint firstItem="hQ1-Km-dUh" firstAttribute="leading" secondItem="un5-6o-MUD" secondAttribute="leading" id="gDz-1T-8zC"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Subscriptions" image="tray.fill" catalog="system" id="Q3t-DW-C6b"/>
                     <connections>
+                        <outlet property="subscribeLabel" destination="Oov-j5-K59" id="IVH-FL-28Z"/>
+                        <outlet property="tableView" destination="hQ1-Km-dUh" id="PJV-2O-xQy"/>
                         <segue destination="5ay-Pd-Bhe" kind="show" identifier="toVideoPlayerScreen" id="so2-kp-0lH"/>
                     </connections>
                 </viewController>
@@ -252,7 +275,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="iV8-Zv-iJr"/>
+        <segue reference="so2-kp-0lH"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
