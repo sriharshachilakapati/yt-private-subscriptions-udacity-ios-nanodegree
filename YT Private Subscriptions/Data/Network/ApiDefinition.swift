@@ -85,7 +85,10 @@ struct ApiDefinition<RequestType: Encodable, ResponseType: Decodable> {
                 do {
                     let subsetRange = getDecodableResponseRange(data)
                     let newData = data.subdata(in: subsetRange)
-                    return Observable.just(try JSONDecoder().decode(ResponseType.self, from: newData))
+
+                    let jsonDecoder = JSONDecoder()
+                    jsonDecoder.dateDecodingStrategy = .iso8601
+                    return Observable.just(try jsonDecoder.decode(ResponseType.self, from: newData))
                 } catch {
                     return Observable.error(error)
                 }

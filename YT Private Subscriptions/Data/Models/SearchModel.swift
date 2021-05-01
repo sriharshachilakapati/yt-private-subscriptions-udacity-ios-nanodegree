@@ -20,11 +20,11 @@ struct SearchResponse: Decodable {
 }
 
 struct SearchResult: Decodable {
-    let id: SearchResultId
+    let id: VideoResourceId
     let snippet: SearchResultSnippet
 }
 
-struct SearchResultId: Decodable {
+struct VideoResourceId: Decodable {
     let kind: String
     let videoId: String
 }
@@ -34,13 +34,13 @@ struct SearchResultSnippet: Decodable {
     let title: String
     let description: String
     let channelTitle: String
-    let thumbnails: SearchResultThumbnails
+    let thumbnails: VideoThumbnails
 }
 
-struct SearchResultThumbnails: Decodable {
-    let low: SearchResultThumbnailInfo
-    let medium: SearchResultThumbnailInfo
-    let high: SearchResultThumbnailInfo
+struct VideoThumbnails: Decodable {
+    let low: VideoThumbnailInfo
+    let medium: VideoThumbnailInfo
+    let high: VideoThumbnailInfo
 
     enum CodingKeys: String, CodingKey {
         case low = "default"
@@ -49,7 +49,7 @@ struct SearchResultThumbnails: Decodable {
     }
 }
 
-struct SearchResultThumbnailInfo: Decodable {
+struct VideoThumbnailInfo: Decodable {
     let url: String
     let width: Int
     let height: Int

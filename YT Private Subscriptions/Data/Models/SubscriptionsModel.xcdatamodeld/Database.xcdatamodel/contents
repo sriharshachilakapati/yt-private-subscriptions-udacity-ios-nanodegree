@@ -9,11 +9,12 @@
         <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="descriptionSnippet" attributeType="String"/>
         <attribute name="id" attributeType="String"/>
+        <attribute name="thumbnailUrl" optional="YES" attributeType="String"/>
         <attribute name="title" attributeType="String"/>
         <relationship name="channel" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Channel" inverseName="videos" inverseEntity="Channel"/>
     </entity>
     <elements>
         <element name="Channel" positionX="-63" positionY="-18" width="128" height="74"/>
-        <element name="Video" positionX="-54" positionY="-9" width="128" height="104"/>
+        <element name="Video" positionX="-54" positionY="-9" width="128" height="119"/>
     </elements>
 </model>

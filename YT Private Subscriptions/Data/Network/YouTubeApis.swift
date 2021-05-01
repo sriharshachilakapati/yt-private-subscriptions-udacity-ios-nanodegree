@@ -20,3 +20,13 @@ let searchVideosApi = ApiDefinition<SearchRequest, SearchResponse>(
     url: BASE_URL + "/search",
     method: .get
 )
+
+let channelInfoApi = ApiDefinition<ChannelInfoRequest, ChannelInfoResponse>(
+    url: BASE_URL + "/channels",
+    method: .get
+)
+
+let playlistItemsApi = ApiDefinition<PlaylistItemsRequest, PlaylistItemsResponse>(
+    url: BASE_URL + "/playlistItems",
+    method: .get
+)
