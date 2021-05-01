@@ -20,7 +20,7 @@ class YoutubeVideoTableViewCell: UITableViewCell {
         guard let url = URL(string: data.snippet.thumbnails.low.url) else { return }
 
         thumbnailImageView.sd_setImage(with: url, completed: nil)
-        videoTitleLabel.text = data.snippet.title
-        channelNameLabel.text = data.snippet.channelTitle
+        videoTitleLabel.text = data.snippet.title.htmlUnescaped
+        channelNameLabel.text = data.snippet.channelTitle.htmlUnescaped
     }
 }

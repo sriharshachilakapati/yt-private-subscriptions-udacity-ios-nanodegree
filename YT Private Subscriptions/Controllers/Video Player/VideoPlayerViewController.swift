@@ -22,9 +22,9 @@ class VideoPlayerViewController: UIViewController {
             "playsinline": 1,
             "autoplay": 1
         ])
-        videoTitleLabel.text = input.videoTitle
-        channelNameLabel.text = input.channelName
-        videoDescriptionLabel.text = input.videoDescription
+        videoTitleLabel.text = input.videoTitle.htmlUnescaped
+        channelNameLabel.text = input.channelName.htmlUnescaped
+        videoDescriptionLabel.text = input.videoDescription.htmlUnescaped
     }
 
     @IBAction func onSubscribeButtonClicked() {
