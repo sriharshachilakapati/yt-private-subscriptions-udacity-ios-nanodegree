@@ -6,11 +6,30 @@
 //
 
 import UIKit
+import RxSwift
 
 class HomeTabViewController: UITabBarController, UITabBarControllerDelegate {
+    private let disposeBag = DisposeBag()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         delegate = self
+
+        NetworkMonitor.shared.isConnected
+            .observe(on: MainScheduler.asyncInstance)
+            .distinctUntilChanged()
+            .subscribe(onNext: { [weak self] isConnected in
+                if !isConnected {
+                    self?.showNetworkNotPresentAlert()
+                }
+            })
+            .disposed(by: disposeBag)
+    }
+
+    private func showNetworkNotPresentAlert() {
+        let alertVC = UIAlertController(title: "No Network", message: "This app requires internet connection to play the videos.", preferredStyle: .alert)
+        alertVC.addAction(UIAlertAction(title: "Dismiss", style: .cancel))
+        present(alertVC, animated: true)
     }
     
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
