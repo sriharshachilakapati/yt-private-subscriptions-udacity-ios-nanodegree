@@ -27,6 +27,10 @@ class SearchSuggestionsViewModel {
             .flatMap { text -> Observable<SearchSuggestionsResponse> in
                 let request = SearchSuggestionsRequest(query: text)
                 return searchSuggestionsApi.call(withPayload: request)
+                    .catch { error in
+                        print(error)
+                        return Observable.empty()
+                    }
             }
             .subscribe(onNext: handleSearchResults(response:))
             .disposed(by: disposeBag)

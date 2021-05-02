@@ -36,6 +36,11 @@ final class SubscriptionsDao {
         var disposeBag: DisposeBag? = DisposeBag()
 
         channelInfoApi.call(withPayload: ChannelInfoRequest(id: id))
+            .catch { error in
+                print(error)
+                disposeBag = nil
+                return Observable.empty()
+            }
             .subscribe(onNext: { response in
                 guard response.items.count == 1 else {
                     disposeBag = nil
@@ -101,6 +106,10 @@ final class SubscriptionsDao {
             }
 
             Observable.zip(collectibles)
+                .catch { error in
+                    print(error)
+                    return Observable.just([])
+                }
                 .subscribe(onNext: { results in
                     for result in results {
                         self.refreshSubscriptions(result.0, result.1)
