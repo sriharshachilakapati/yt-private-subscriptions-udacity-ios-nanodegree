@@ -23,4 +23,12 @@ class YoutubeVideoTableViewCell: UITableViewCell {
         videoTitleLabel.text = data.snippet.title.htmlUnescaped
         channelNameLabel.text = data.snippet.channelTitle.htmlUnescaped
     }
+
+    func bind(data: Video) {
+        guard let url = URL(string: data.thumbnailUrl ?? "") else { return }
+
+        thumbnailImageView.sd_setImage(with: url, completed: nil)
+        videoTitleLabel.text = data.title?.htmlUnescaped
+        channelNameLabel.text = data.channel?.name?.htmlUnescaped
+    }
 }
