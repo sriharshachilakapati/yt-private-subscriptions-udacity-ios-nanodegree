@@ -76,4 +76,52 @@ final class SubscriptionsDao {
             guard let _ = try? context.save() else { return }
         }
     }
+
+    static func refreshSubscriptions() {
+        var disposeBag: DisposeBag? = DisposeBag()
+
+        func getAllChannels() -> [Channel] {
+            let fetchRequest: NSFetchRequest<Channel> = Channel.fetchRequest()
+            fetchRequest.propertiesToFetch = [ "id", "uploadsPlaylistId" ]
+            return ((try? fetchRequest.execute()) ?? [])!
+        }
+
+        let context = DataController.shared.backgroundContext
+
+        context.perform {
+            var collectibles = [Observable<(Channel, PlaylistItemsResponse)>]()
+
+            for channel in getAllChannels() {
+                let request = PlaylistItemsRequest(playlistId: channel.uploadsPlaylistId!)
+                let apiCall = playlistItemsApi
+                    .call(withPayload: request)
+                    .flatMap { Observable.just((channel, $0)) }
+
+                collectibles.append(apiCall)
+            }
+
+            Observable.zip(collectibles)
+                .subscribe(onNext: { results in
+                    for result in results {
+                        self.refreshSubscriptions(result.0, result.1)
+                    }
+
+                    disposeBag = nil
+                    guard let _ = try? context.save() else { return }
+                })
+                .disposed(by: disposeBag!)
+        }
+    }
+
+    private static func refreshSubscriptions(_ channel: Channel, _ response: PlaylistItemsResponse) {
+        for item in response.items {
+            let video = Video(context: DataController.shared.backgroundContext)
+            video.channel = channel
+            video.date = item.snippet.publishedAt
+            video.descriptionSnippet = item.snippet.description
+            video.title = item.snippet.title
+            video.id = item.snippet.resourceId.videoId
+            video.thumbnailUrl = item.snippet.thumbnails.low.url
+        }
+    }
 }

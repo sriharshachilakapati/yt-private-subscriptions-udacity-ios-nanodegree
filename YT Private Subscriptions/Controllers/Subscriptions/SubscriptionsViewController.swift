@@ -32,6 +32,10 @@ class SubscriptionsViewController: UIViewController {
             .disposed(by: disposeBag)
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        SubscriptionsDao.refreshSubscriptions()
+    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == "toVideoPlayerScreen" else { return }
 
