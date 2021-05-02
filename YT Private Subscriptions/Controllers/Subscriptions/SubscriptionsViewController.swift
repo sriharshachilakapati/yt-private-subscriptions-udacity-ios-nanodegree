@@ -21,18 +21,22 @@ class SubscriptionsViewController: UIViewController {
 
         tableView.delegate = self
         tableView.dataSource = dataSource
+        tableView.refreshControl = UIRefreshControl()
+        tableView.refreshControl?.addTarget(self, action: #selector(handleRefreshData), for: .valueChanged)
 
         SubscriptionsDao.getVideosFromSubscriptions()
             .observe(on: MainScheduler.asyncInstance)
             .subscribe(onNext: { [weak self] videos in
                 self?.dataSource.videos = videos
                 self?.subscribeLabel.isHidden = videos.count > 1
+                self?.tableView?.refreshControl?.endRefreshing()
                 self?.tableView.reloadData()
             })
             .disposed(by: disposeBag)
     }
 
     override func viewDidAppear(_ animated: Bool) {
+        tableView?.refreshControl?.beginRefreshing()
         SubscriptionsDao.refreshSubscriptions()
     }
 
@@ -44,6 +48,10 @@ class SubscriptionsViewController: UIViewController {
         else { return }
 
         destVC.input = sender
+    }
+
+    @objc private func handleRefreshData() {
+        SubscriptionsDao.refreshSubscriptions()
     }
 }
 
