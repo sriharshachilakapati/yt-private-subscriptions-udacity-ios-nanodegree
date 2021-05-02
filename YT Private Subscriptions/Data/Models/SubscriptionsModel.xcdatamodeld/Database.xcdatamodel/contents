@@ -3,6 +3,7 @@
     <entity name="Channel" representedClassName="Channel" syncable="YES" codeGenerationType="class">
         <attribute name="id" attributeType="String"/>
         <attribute name="name" attributeType="String"/>
+        <attribute name="uploadsPlaylistId" optional="YES" attributeType="String"/>
         <relationship name="videos" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Video" inverseName="channel" inverseEntity="Video"/>
     </entity>
     <entity name="Video" representedClassName="Video" syncable="YES" codeGenerationType="class">
@@ -14,7 +15,7 @@
         <relationship name="channel" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Channel" inverseName="videos" inverseEntity="Channel"/>
     </entity>
     <elements>
-        <element name="Channel" positionX="-63" positionY="-18" width="128" height="74"/>
+        <element name="Channel" positionX="-63" positionY="-18" width="128" height="89"/>
         <element name="Video" positionX="-54" positionY="-9" width="128" height="119"/>
     </elements>
 </model>

@@ -243,6 +243,7 @@
                     <navigationItem key="navigationItem" title="Video Player" id="BOF-0I-0cE"/>
                     <connections>
                         <outlet property="channelNameLabel" destination="c8f-dk-9aj" id="NVt-Dr-o5u"/>
+                        <outlet property="subscribeButton" destination="IZZ-wG-qfP" id="jlx-bh-YWG"/>
                         <outlet property="videoDescriptionLabel" destination="rzc-n7-MEC" id="aoc-ZE-eyc"/>
                         <outlet property="videoPlayerView" destination="imy-31-Mx0" id="6Zl-vo-HKt"/>
                         <outlet property="videoTitleLabel" destination="A21-9S-1HL" id="uS4-jw-6th"/>
