@@ -23,6 +23,8 @@ Upon the first launch, the app opens in a screen with two tabs in the bottom. Th
     - [x] You can manage your subscription from the player screen with that button
   - [x] See the latest uploads of your subscriptions in the 'Subscriptions' screen
   
+You can also pull down the subscriptions screen to refresh your feed.
+  
 ## Setting up for development
 
 What you'll need:
