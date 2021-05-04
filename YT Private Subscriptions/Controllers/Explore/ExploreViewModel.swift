@@ -12,6 +12,7 @@ class ExploreViewModel {
     private let disposeBag = DisposeBag()
 
     let searchResults = PublishSubject<[SearchResult]>()
+    
 
     var searchText: String = "" {
         didSet {

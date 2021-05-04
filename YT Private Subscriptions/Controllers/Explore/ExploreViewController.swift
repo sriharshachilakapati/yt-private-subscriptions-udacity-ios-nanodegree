@@ -11,6 +11,7 @@ import RxSwift
 class ExploreViewController: UIViewController, SearchResultHandler {
 
     @IBOutlet weak var enterQueryLabel: UILabel!
+    @IBOutlet weak var noInternetDialog: UIView!
     @IBOutlet weak var tableView: UITableView!
 
     private let disposeBag = DisposeBag()
@@ -39,8 +40,24 @@ class ExploreViewController: UIViewController, SearchResultHandler {
         tableView.register(UINib(nibName: YoutubeVideoTableViewCell.nibName, bundle: nil),
                            forCellReuseIdentifier: YoutubeVideoTableViewCell.reuseIdentifier)
 
+        noInternetDialog.layer.cornerRadius = 16
+        noInternetDialog.backgroundColor = noInternetDialog.backgroundColor?.withAlphaComponent(0.95)
+
         tableView.delegate = self
         tableView.dataSource = dataSource
+
+        NetworkMonitor.shared.isConnected
+            .distinctUntilChanged()
+            .observe(on: MainScheduler.asyncInstance)
+            .subscribe(onNext: { [weak self] isConnected in
+                self?.noInternetDialog.isHidden = isConnected
+                self?.searchController.searchBar.isUserInteractionEnabled = isConnected
+
+                self?.enterQueryLabel.isHidden = isConnected
+                    ? (self?.dataSource.searchResults.count ?? 0) > 0
+                    : true
+            })
+            .disposed(by: disposeBag)
 
         viewModel.searchResults
             .subscribe(onNext: { results in

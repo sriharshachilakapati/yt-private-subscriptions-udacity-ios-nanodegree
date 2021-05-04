@@ -45,28 +45,57 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter a Query to see results" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wh2-mO-WWW">
-                                <rect key="frame" x="0.0" y="398" width="414" height="105.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" text="Enter a Query to see results" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wh2-mO-WWW">
+                                <rect key="frame" x="52.5" y="398" width="309.5" height="105.5"/>
+                                <edgeInsets key="layoutMargins" top="16" left="16" bottom="16" right="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O5U-Kg-XGj" userLabel="No Internet Dialog">
+                                <rect key="frame" x="52" y="387" width="310" height="127.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" preservesSuperviewLayoutMargins="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ZRx-8e-8py">
+                                        <rect key="frame" x="16" y="16" width="278" height="95.5"/>
+                                        <edgeInsets key="layoutMargins" top="16" left="16" bottom="16" right="16"/>
+                                        <string key="text">No Internet access!
+
+Search is disabled until internet comes back.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="ZRx-8e-8py" firstAttribute="leading" secondItem="O5U-Kg-XGj" secondAttribute="leading" constant="16" id="Bqi-eG-6KL"/>
+                                    <constraint firstItem="ZRx-8e-8py" firstAttribute="trailing" secondItem="O5U-Kg-XGj" secondAttribute="trailing" constant="-16" id="FjM-U0-5kQ"/>
+                                    <constraint firstItem="ZRx-8e-8py" firstAttribute="bottom" secondItem="O5U-Kg-XGj" secondAttribute="bottom" constant="-16" id="Vea-xJ-eWo"/>
+                                    <constraint firstItem="ZRx-8e-8py" firstAttribute="top" secondItem="O5U-Kg-XGj" secondAttribute="top" constant="16" id="dY0-XN-jAi"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mlZ-pU-u5e"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="mlZ-pU-u5e" firstAttribute="bottom" secondItem="Ufe-1f-0qL" secondAttribute="bottom" id="2Ov-iS-XSG"/>
-                            <constraint firstItem="mlZ-pU-u5e" firstAttribute="leading" secondItem="Ufe-1f-0qL" secondAttribute="leading" id="4w4-Px-00E"/>
+                            <constraint firstItem="Ufe-1f-0qL" firstAttribute="bottom" secondItem="mlZ-pU-u5e" secondAttribute="bottom" id="2Ov-iS-XSG"/>
+                            <constraint firstItem="Ufe-1f-0qL" firstAttribute="leading" secondItem="mlZ-pU-u5e" secondAttribute="leading" id="4w4-Px-00E"/>
                             <constraint firstItem="wh2-mO-WWW" firstAttribute="centerY" secondItem="mlZ-pU-u5e" secondAttribute="centerY" id="GKE-Ko-Jkp"/>
-                            <constraint firstItem="wh2-mO-WWW" firstAttribute="leading" secondItem="mlZ-pU-u5e" secondAttribute="leading" id="bGR-Bv-Nk2"/>
-                            <constraint firstItem="mlZ-pU-u5e" firstAttribute="trailing" secondItem="Ufe-1f-0qL" secondAttribute="trailing" id="gSz-hK-c4c"/>
-                            <constraint firstItem="mlZ-pU-u5e" firstAttribute="trailing" secondItem="wh2-mO-WWW" secondAttribute="trailing" id="ppE-sG-tVp"/>
-                            <constraint firstItem="mlZ-pU-u5e" firstAttribute="top" secondItem="Ufe-1f-0qL" secondAttribute="top" id="ugD-6S-R4b"/>
+                            <constraint firstItem="O5U-Kg-XGj" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="mlZ-pU-u5e" secondAttribute="leading" constant="32" id="GXu-l7-9hB"/>
+                            <constraint firstItem="O5U-Kg-XGj" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="mlZ-pU-u5e" secondAttribute="trailing" constant="-32" id="JUh-gn-hiV"/>
+                            <constraint firstItem="O5U-Kg-XGj" firstAttribute="centerX" secondItem="mlZ-pU-u5e" secondAttribute="centerX" id="Yf0-AI-FwO"/>
+                            <constraint firstItem="wh2-mO-WWW" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="mlZ-pU-u5e" secondAttribute="leading" constant="16" id="bGR-Bv-Nk2"/>
+                            <constraint firstItem="wh2-mO-WWW" firstAttribute="centerX" secondItem="mlZ-pU-u5e" secondAttribute="centerX" id="fcE-en-ZwF"/>
+                            <constraint firstItem="Ufe-1f-0qL" firstAttribute="trailing" secondItem="mlZ-pU-u5e" secondAttribute="trailing" id="gSz-hK-c4c"/>
+                            <constraint firstItem="O5U-Kg-XGj" firstAttribute="centerY" secondItem="mlZ-pU-u5e" secondAttribute="centerY" id="l8F-aW-qvC"/>
+                            <constraint firstItem="wh2-mO-WWW" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="mlZ-pU-u5e" secondAttribute="trailing" constant="16" id="ppE-sG-tVp"/>
+                            <constraint firstItem="Ufe-1f-0qL" firstAttribute="top" secondItem="mlZ-pU-u5e" secondAttribute="top" id="ugD-6S-R4b"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Explore" image="magnifyingglass" catalog="system" id="nLa-v8-eAG"/>
                     <connections>
                         <outlet property="enterQueryLabel" destination="wh2-mO-WWW" id="BNg-2f-JkE"/>
+                        <outlet property="noInternetDialog" destination="O5U-Kg-XGj" id="fac-XN-qJV"/>
                         <outlet property="tableView" destination="Ufe-1f-0qL" id="wdy-KR-mkD"/>
                         <segue destination="5ay-Pd-Bhe" kind="show" identifier="toVideoPlayerScreen" id="iV8-Zv-iJr"/>
                     </connections>
@@ -276,7 +305,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="so2-kp-0lH"/>
+        <segue reference="iV8-Zv-iJr"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
