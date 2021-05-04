@@ -26,10 +26,19 @@ class ExploreViewModel {
                     return Observable.empty()
                 })
                 .subscribe(onNext: { response in
+                    self.searchResults.onNext(response.items.map(self.unescapeHtmlEntities))
                     self.isNetworkCallInProgress.onNext(false)
-                    self.searchResults.onNext(response.items)
                 })
                 .disposed(by: disposeBag)
         }
+    }
+
+    private func unescapeHtmlEntities(_ result: SearchResult) -> SearchResult {
+        var newResult = result
+
+        newResult.snippet.title = result.snippet.title.htmlUnescaped
+        newResult.snippet.channelTitle = result.snippet.channelTitle.htmlUnescaped
+
+        return newResult
     }
 }

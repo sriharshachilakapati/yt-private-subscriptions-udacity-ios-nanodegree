@@ -20,15 +20,15 @@ class YoutubeVideoTableViewCell: UITableViewCell {
         guard let url = URL(string: data.snippet.thumbnails.low.url) else { return }
 
         thumbnailImageView.sd_setImage(with: url, placeholderImage: UIImage(systemName: "photo"), options: .scaleDownLargeImages, context: nil)
-        videoTitleLabel.text = data.snippet.title.htmlUnescaped
-        channelNameLabel.text = data.snippet.channelTitle.htmlUnescaped
+        videoTitleLabel.text = data.snippet.title
+        channelNameLabel.text = data.snippet.channelTitle
     }
 
     func bind(data: Video) {
         guard let url = URL(string: data.thumbnailUrl ?? "") else { return }
 
         thumbnailImageView.sd_setImage(with: url, placeholderImage: UIImage(systemName: "photo"), options: .scaleDownLargeImages, context: nil)
-        videoTitleLabel.text = data.title?.htmlUnescaped
-        channelNameLabel.text = data.channel?.name?.htmlUnescaped
+        videoTitleLabel.text = data.title
+        channelNameLabel.text = data.channel?.name
     }
 }

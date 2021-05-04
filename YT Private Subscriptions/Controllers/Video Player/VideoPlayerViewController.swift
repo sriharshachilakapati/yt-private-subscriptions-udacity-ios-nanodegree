@@ -27,8 +27,8 @@ class VideoPlayerViewController: UIViewController {
             "autoplay": 1
         ])
 
-        videoTitleLabel.text = input.videoTitle.htmlUnescaped
-        channelNameLabel.text = input.channelName.htmlUnescaped
+        videoTitleLabel.text = input.videoTitle
+        channelNameLabel.text = input.channelName
         videoDescriptionLabel.text = input.videoDescription.htmlUnescaped
 
         SubscriptionsDao.isNetworkCallInProgress
