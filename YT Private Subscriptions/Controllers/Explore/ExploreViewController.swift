@@ -66,6 +66,16 @@ class ExploreViewController: UIViewController, SearchResultHandler {
                 self.tableView.reloadData()
             })
             .disposed(by: disposeBag)
+
+        viewModel.isNetworkCallInProgress
+            .subscribe(onNext: { inProgress in
+                if inProgress {
+                    self.showNetworkProgressHUD()
+                } else {
+                    self.hideProgressHUD()
+                }
+            })
+            .disposed(by: disposeBag)
     }
 
     override func viewDidAppear(_ animated: Bool) {

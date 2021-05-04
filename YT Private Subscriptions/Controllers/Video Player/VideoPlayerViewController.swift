@@ -31,6 +31,16 @@ class VideoPlayerViewController: UIViewController {
         channelNameLabel.text = input.channelName.htmlUnescaped
         videoDescriptionLabel.text = input.videoDescription.htmlUnescaped
 
+        SubscriptionsDao.isNetworkCallInProgress
+            .subscribe(onNext: { inProgress in
+                if inProgress {
+                    self.showNetworkProgressHUD()
+                } else {
+                    self.hideProgressHUD()
+                }
+            })
+            .disposed(by: disposeBag)
+
         setupSubscribeButton()
     }
 

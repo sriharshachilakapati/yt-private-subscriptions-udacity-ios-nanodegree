@@ -12,6 +12,8 @@ import CoreData
 final class SubscriptionsDao {
     private init() {}
 
+    static let isNetworkCallInProgress = BehaviorSubject(value: false)
+
     static func getVideosFromSubscriptions() -> Observable<[Video]> {
         let fetchRequest: NSFetchRequest<Video> = Video.fetchRequest()
         let sortDescriptor = NSSortDescriptor(key: "date", ascending: false)
@@ -35,13 +37,17 @@ final class SubscriptionsDao {
     static func subscribeChannel(id: String) {
         var disposeBag: DisposeBag? = DisposeBag()
 
+        isNetworkCallInProgress.onNext(true)
         channelInfoApi.call(withPayload: ChannelInfoRequest(id: id))
             .catch { error in
                 print(error)
                 disposeBag = nil
+                self.isNetworkCallInProgress.onNext(false)
                 return Observable.empty()
             }
             .subscribe(onNext: { response in
+                self.isNetworkCallInProgress.onNext(false)
+
                 guard response.items.count == 1 else {
                     disposeBag = nil
                     return
@@ -95,6 +101,7 @@ final class SubscriptionsDao {
 
         context.perform {
             var collectibles = [Observable<(Channel, PlaylistItemsResponse)>]()
+            self.isNetworkCallInProgress.onNext(true)
 
             for channel in getAllChannels() {
                 let request = PlaylistItemsRequest(playlistId: channel.uploadsPlaylistId!)
@@ -108,9 +115,12 @@ final class SubscriptionsDao {
             Observable.zip(collectibles)
                 .catch { error in
                     print(error)
+                    self.isNetworkCallInProgress.onNext(false)
                     return Observable.just([])
                 }
                 .subscribe(onNext: { results in
+                    self.isNetworkCallInProgress.onNext(false)
+
                     for result in results {
                         self.refreshSubscriptions(result.0, result.1)
                     }

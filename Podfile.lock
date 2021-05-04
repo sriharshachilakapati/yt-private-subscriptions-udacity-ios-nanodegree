@@ -1,4 +1,5 @@
 PODS:
+  - MBProgressHUD (1.2.0)
   - RxCocoa (6.1.0):
     - RxRelay (= 6.1.0)
     - RxSwift (= 6.1.0)
@@ -11,6 +12,7 @@ PODS:
   - youtube-ios-player-helper (1.0.3)
 
 DEPENDENCIES:
+  - MBProgressHUD (~> 1.2.0)
   - RxCocoa (= 6.1.0)
   - RxSwift (= 6.1.0)
   - SDWebImage (~> 5.0)
@@ -18,6 +20,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - MBProgressHUD
     - RxCocoa
     - RxRelay
     - RxSwift
@@ -25,12 +28,13 @@ SPEC REPOS:
     - youtube-ios-player-helper
 
 SPEC CHECKSUMS:
+  MBProgressHUD: 3ee5efcc380f6a79a7cc9b363dd669c5e1ae7406
   RxCocoa: 5c51f02d562cbd94629f6c26cf0c80fe4ab8d343
   RxRelay: 483e1a19fad961b41f0b0c0bee506f46c1ae14fe
   RxSwift: a834e5c538e89eca0cae86f403f4fbf0336786ce
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
   youtube-ios-player-helper: 0185c57db23c80d63d6ca11251d110abb8a4ca61
 
-PODFILE CHECKSUM: 9fe85239ac7f1ce61884614d9d21a754f700ed6a
+PODFILE CHECKSUM: bff8f4dd1386c912e47f083ab38762af7c473eca
 
 COCOAPODS: 1.10.1

@@ -29,14 +29,22 @@ class SubscriptionsViewController: UIViewController {
             .subscribe(onNext: { [weak self] videos in
                 self?.dataSource.videos = videos
                 self?.subscribeLabel.isHidden = videos.count > 1
-                self?.tableView?.refreshControl?.endRefreshing()
                 self?.tableView.reloadData()
+            })
+            .disposed(by: disposeBag)
+
+        SubscriptionsDao.isNetworkCallInProgress
+            .subscribe(onNext: { inProgress in
+                if inProgress {
+                    self.showNetworkProgressHUD()
+                } else {
+                    self.hideProgressHUD()
+                }
             })
             .disposed(by: disposeBag)
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        tableView?.refreshControl?.beginRefreshing()
         SubscriptionsDao.refreshSubscriptions()
     }
 
@@ -52,6 +60,7 @@ class SubscriptionsViewController: UIViewController {
 
     @objc private func handleRefreshData() {
         SubscriptionsDao.refreshSubscriptions()
+        self.tableView.refreshControl?.endRefreshing()
     }
 }
 
