@@ -34,7 +34,7 @@ final class SubscriptionsDao {
             .flatMap { Observable.just($0.count == 1) }
     }
 
-    static func subscribeChannel(id: String) {
+    static func subscribeChannel(id: String, onFailure: ((Error) -> Void)? = nil) {
         var disposeBag: DisposeBag? = DisposeBag()
 
         isNetworkCallInProgress.onNext(true)
@@ -43,6 +43,8 @@ final class SubscriptionsDao {
                 print(error)
                 disposeBag = nil
                 self.isNetworkCallInProgress.onNext(false)
+
+                onFailure?(error)
                 return Observable.empty()
             }
             .subscribe(onNext: { response in

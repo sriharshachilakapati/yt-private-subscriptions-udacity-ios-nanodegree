@@ -10,6 +10,11 @@ import MBProgressHUD
 
 extension UIViewController {
     func showSimpleAlert(title: String, message: String) {
+        guard Thread.current.isMainThread else {
+            DispatchQueue.main.async { self.showSimpleAlert(title: title, message: message) }
+            return
+        }
+
         let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alertVC.addAction(UIAlertAction(title: "Dismiss", style: .cancel))
         present(alertVC, animated: true)

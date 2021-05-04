@@ -48,7 +48,9 @@ class VideoPlayerViewController: UIViewController {
         if isSubscribed {
             SubscriptionsDao.unsubscribeChannel(id: input.channelId)
         } else {
-            SubscriptionsDao.subscribeChannel(id: input.channelId)
+            SubscriptionsDao.subscribeChannel(id: input.channelId) { _ in
+                self.showSimpleAlert(title: "Network Failure", message: "Failed to fetch channel information to subscribe.")
+            }
         }
     }
 
