@@ -21,6 +21,8 @@ class VideoPlayerViewController: UIViewController {
     public var input: VideoPlayerInput!
     private var isSubscribed: Bool = false
 
+    //MARK: - View Life cycle
+
     override func viewDidLoad() {
         videoPlayerView.load(withVideoId: input.videoId, playerVars: [
             "playsinline": 1,
@@ -44,6 +46,8 @@ class VideoPlayerViewController: UIViewController {
         setupSubscribeButton()
     }
 
+    //MARK: - Event Handler functions
+
     @IBAction func onSubscribeButtonClicked() {
         if isSubscribed {
             SubscriptionsDao.unsubscribeChannel(id: input.channelId)
@@ -53,6 +57,8 @@ class VideoPlayerViewController: UIViewController {
             }
         }
     }
+
+    //MARK: - UI Configuration Helpers
 
     private func setupSubscribeButton() {
         let originalColor = subscribeButton.backgroundColor

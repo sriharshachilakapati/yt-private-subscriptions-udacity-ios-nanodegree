@@ -15,6 +15,8 @@ class SubscriptionsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var subscribeLabel: UILabel!
 
+    //MARK: - View Life Cycle
+
     override func viewDidLoad() {
         tableView.register(UINib(nibName: YoutubeVideoTableViewCell.nibName, bundle: nil),
                            forCellReuseIdentifier: YoutubeVideoTableViewCell.reuseIdentifier)
@@ -48,6 +50,8 @@ class SubscriptionsViewController: UIViewController {
         SubscriptionsDao.refreshSubscriptions()
     }
 
+    //MARK: - Routing logic
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == "toVideoPlayerScreen" else { return }
 
@@ -58,11 +62,15 @@ class SubscriptionsViewController: UIViewController {
         destVC.input = sender
     }
 
+    //MARK: - Handler functions
+
     @objc private func handleRefreshData() {
         SubscriptionsDao.refreshSubscriptions()
         self.tableView.refreshControl?.endRefreshing()
     }
 }
+
+//MARK: - UITableView Delegate
 
 extension SubscriptionsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

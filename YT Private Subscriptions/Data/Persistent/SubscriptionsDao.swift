@@ -14,6 +14,8 @@ final class SubscriptionsDao {
 
     static let isNetworkCallInProgress = BehaviorSubject(value: false)
 
+    //MARK: - Subscription Queries
+
     static func getVideosFromSubscriptions() -> Observable<[Video]> {
         let fetchRequest: NSFetchRequest<Video> = Video.fetchRequest()
         let sortDescriptor = NSSortDescriptor(key: "date", ascending: false)
@@ -33,6 +35,8 @@ final class SubscriptionsDao {
             .asObservable()
             .flatMap { Observable.just($0.count == 1) }
     }
+
+    //MARK: - Manage Subscriptions
 
     static func subscribeChannel(id: String, onFailure: ((Error) -> Void)? = nil) {
         var disposeBag: DisposeBag? = DisposeBag()
@@ -89,6 +93,8 @@ final class SubscriptionsDao {
             guard let _ = try? context.save() else { return }
         }
     }
+
+    //MARK: - Update Subscriptions from Network
 
     static func refreshSubscriptions() {
         var disposeBag: DisposeBag? = DisposeBag()

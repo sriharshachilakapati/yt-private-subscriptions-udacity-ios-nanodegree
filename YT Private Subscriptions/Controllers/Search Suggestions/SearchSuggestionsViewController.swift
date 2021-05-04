@@ -23,6 +23,8 @@ class SearchSuggestionsViewController: UIViewController, UISearchResultsUpdating
     private var viewModel = SearchSuggestionsViewModel()
     private var suggestions = [String]()
 
+    //MARK: - View Life Cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -38,11 +40,14 @@ class SearchSuggestionsViewController: UIViewController, UISearchResultsUpdating
             .disposed(by: disposeBag)
     }
 
+    //MARK: - UISearchResultsUpdating handler
+
     func updateSearchResults(for searchController: UISearchController) {
         viewModel.searchText = searchController.searchBar.text ?? ""
     }
 }
 
+//MARK: - Table view DataSource & Delegate
 extension SearchSuggestionsViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         suggestions.count
@@ -60,6 +65,8 @@ extension SearchSuggestionsViewController: UITableViewDataSource, UITableViewDel
         dismiss(animated: true, completion: nil)
     }
 }
+
+//MARK: - Keyboard height adjustments
 
 extension SearchSuggestionsViewController {
     override func viewWillAppear(_ animated: Bool) {
@@ -98,6 +105,8 @@ extension SearchSuggestionsViewController {
         }
     }
 }
+
+//MARK: - UISearchBarDelegate
 
 extension SearchSuggestionsViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {

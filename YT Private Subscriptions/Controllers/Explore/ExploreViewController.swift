@@ -18,6 +18,8 @@ class ExploreViewController: UIViewController, SearchResultHandler {
     private let viewModel = ExploreViewModel()
     private let dataSource = ExploreSearchResultDataSource()
 
+    //MARK: - Search Controller Setup
+
     private lazy var searchController: UISearchController = {
         let suggestionsVC = storyboard?.instantiateViewController(identifier: String(describing: SearchSuggestionsViewController.self))
             as? SearchSuggestionsViewController
@@ -33,6 +35,8 @@ class ExploreViewController: UIViewController, SearchResultHandler {
 
         return searchController
     }()
+
+    //MARK: - View Life cyle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,11 +101,15 @@ class ExploreViewController: UIViewController, SearchResultHandler {
         }
     }
 
+    //MARK: - Search suggestion handler
+
     func handleSearchResult(_ result: String) {
         searchController.searchBar.text = result
         viewModel.searchText = result
     }
 }
+
+//MARK: - Table View Delegate
 
 extension ExploreViewController: UITableViewDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
