@@ -20,18 +20,16 @@ class HomeTabViewController: UITabBarController, UITabBarControllerDelegate {
             .distinctUntilChanged()
             .subscribe(onNext: { [weak self] isConnected in
                 if !isConnected {
-                    self?.showNetworkNotPresentAlert()
+                    self?.showSimpleAlert(title: "No Network", message:
+                            """
+                            This app requires interet connection to function properly.
+                            Certain features will be disabled until internet connection is available again.
+                            """.replacingOccurrences(of: "\n", with: " "))
                 }
             })
             .disposed(by: disposeBag)
     }
 
-    private func showNetworkNotPresentAlert() {
-        let alertVC = UIAlertController(title: "No Network", message: "This app requires internet connection to play the videos.", preferredStyle: .alert)
-        alertVC.addAction(UIAlertAction(title: "Dismiss", style: .cancel))
-        present(alertVC, animated: true)
-    }
-    
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         guard let fromView = selectedViewController?.view,
               let toView = viewController.view

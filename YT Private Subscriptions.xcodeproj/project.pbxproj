@@ -25,6 +25,7 @@
 		2027E52D263D90FD003A58C8 /* ObservableFetchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2027E52C263D90FD003A58C8 /* ObservableFetchRequest.swift */; };
 		2027E531263E7C24003A58C8 /* SubscriptionVideosDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2027E530263E7C24003A58C8 /* SubscriptionVideosDataSource.swift */; };
 		2027E547263F3B79003A58C8 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2027E546263F3B78003A58C8 /* NetworkMonitor.swift */; };
+		2027E54A26404DB8003A58C8 /* UIViewControllerHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2027E54926404DB8003A58C8 /* UIViewControllerHelpers.swift */; };
 		2086D6A026340CBD00F98E4A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2086D69F26340CBD00F98E4A /* AppDelegate.swift */; };
 		2086D6A226340CBD00F98E4A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2086D6A126340CBD00F98E4A /* SceneDelegate.swift */; };
 		2086D6A726340CBD00F98E4A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2086D6A526340CBD00F98E4A /* Main.storyboard */; };
@@ -60,6 +61,7 @@
 		2027E52C263D90FD003A58C8 /* ObservableFetchRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableFetchRequest.swift; sourceTree = "<group>"; };
 		2027E530263E7C24003A58C8 /* SubscriptionVideosDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionVideosDataSource.swift; sourceTree = "<group>"; };
 		2027E546263F3B78003A58C8 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		2027E54926404DB8003A58C8 /* UIViewControllerHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerHelpers.swift; sourceTree = "<group>"; };
 		2086D69C26340CBD00F98E4A /* YT Private Subscriptions.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "YT Private Subscriptions.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2086D69F26340CBD00F98E4A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2086D6A126340CBD00F98E4A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				2027E525263D632A003A58C8 /* StringUtils.swift */,
+				2027E54926404DB8003A58C8 /* UIViewControllerHelpers.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -398,6 +401,7 @@
 				2027E51E263D4CF8003A58C8 /* ChannelInfoModel.swift in Sources */,
 				2027E4FD263B32E8003A58C8 /* VideoPlayerViewController.swift in Sources */,
 				2027E518263C936B003A58C8 /* YoutubeVideoTableViewCell.swift in Sources */,
+				2027E54A26404DB8003A58C8 /* UIViewControllerHelpers.swift in Sources */,
 				20C06BC626342A3200EC7BCE /* ExploreViewController.swift in Sources */,
 				20C06BCC263433FE00EC7BCE /* HomeTabViewController.swift in Sources */,
 			);
